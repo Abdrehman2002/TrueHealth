@@ -91,38 +91,58 @@ const Header = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2"
+              className="lg:hidden p-2 transition-transform duration-300 hover:scale-110"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6 transition-all duration-300 rotate-90" />
+              ) : (
+                <Menu className="h-6 w-6 transition-all duration-300" />
+              )}
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t">
-            <nav className="container mx-auto px-4 py-4 space-y-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`block font-medium transition-colors hover:text-accent ${
-                    isActive(item.path) ? "text-trust-blue" : "text-foreground"
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <Link to="/quote" onClick={() => setIsMenuOpen(false)}>
-                <Button variant="hero" size="lg" className="w-full mt-4">
-                  Get a Quote
-                </Button>
+        <div 
+          className={`lg:hidden bg-white border-t overflow-hidden transition-all duration-500 ease-in-out ${
+            isMenuOpen 
+              ? 'max-h-96 opacity-100 transform translate-y-0' 
+              : 'max-h-0 opacity-0 transform -translate-y-4'
+          }`}
+        >
+          <nav className="container mx-auto px-4 py-4 space-y-4">
+            {navItems.map((item, index) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className={`block font-medium transition-all duration-300 hover:text-accent hover:translate-x-2 ${
+                  isActive(item.path) ? "text-trust-blue" : "text-foreground"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+                style={{
+                  animationDelay: isMenuOpen ? `${index * 100}ms` : '0ms',
+                  animationFillMode: 'both'
+                }}
+              >
+                {item.name}
               </Link>
-            </nav>
-          </div>
-        )}
+            ))}
+            <Link 
+              to="/quote" 
+              onClick={() => setIsMenuOpen(false)}
+              className="block transition-all duration-300 hover:scale-105"
+              style={{
+                animationDelay: isMenuOpen ? `${navItems.length * 100}ms` : '0ms',
+                animationFillMode: 'both'
+              }}
+            >
+              <Button variant="hero" size="lg" className="w-full mt-4">
+                Get a Quote
+              </Button>
+            </Link>
+          </nav>
+        </div>
       </header>
     </>
   );

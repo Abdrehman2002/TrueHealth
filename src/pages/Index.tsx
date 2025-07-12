@@ -18,9 +18,6 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ScrollReveal from "@/components/ScrollReveal";
-import FloatingElement from "@/components/FloatingElements";
-import AnimatedStats from "@/components/AnimatedStats";
 import heroImage from "@/assets/hero-medical-team.jpg";
 import rcmServicesImage from "@/assets/rcm-services.jpg";
 import credentialingImage from "@/assets/credentialing.jpg";
@@ -181,32 +178,26 @@ const Index = () => {
         
         <div className="relative container mx-auto px-4 text-center text-white">
           <div className="max-w-4xl mx-auto">
-            <FloatingElement delay={0}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-fade-in-up">
-                Streamline Your Revenue Cycle Management with{" "}
-                <span className="text-accent">True Cycle Health</span>
-              </h1>
-            </FloatingElement>
-            <ScrollReveal animation="fade-in-up" delay={200}>
-              <p className="text-xl md:text-2xl mb-8 text-blue-100 leading-relaxed">
-                We provide end-to-end support for medical billing, credentialing, claims handling, and denial resolution, helping healthcare providers improve workflow, recover revenue faster, and reduce billing issues.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal animation="scale-in-bounce" delay={400}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/quote">
-                  <Button variant="hero" size="xl" className="text-lg px-8 py-4 hover:animate-pulse-glow transition-all duration-300">
-                    Get a Demo Today!
-                    <ChevronRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link to="/contact">
-                  <Button variant="outline" size="xl" className="text-lg px-8 py-4 bg-white/10 border-white text-white hover:bg-white hover:text-trust-blue transition-all duration-300">
-                    Schedule Consultation
-                  </Button>
-                </Link>
-              </div>
-            </ScrollReveal>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              Streamline Your Revenue Cycle Management with{" "}
+              <span className="text-accent">True Cycle Health</span>
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-blue-100 leading-relaxed">
+              We provide end-to-end support for medical billing, credentialing, claims handling, and denial resolution, helping healthcare providers improve workflow, recover revenue faster, and reduce billing issues.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/quote">
+                <Button variant="hero" size="xl" className="text-lg px-8 py-4 transition-all duration-300">
+                  Get a Demo Today!
+                  <ChevronRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/contact">
+                <Button variant="outline" size="xl" className="text-lg px-8 py-4 bg-white/10 border-white text-white hover:bg-white hover:text-trust-blue transition-all duration-300">
+                  Schedule Consultation
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -214,16 +205,34 @@ const Index = () => {
       {/* Stats Section */}
       <section className="py-20 bg-hero-gradient text-white">
         <div className="container mx-auto px-4">
-          <ScrollReveal animation="fade-in-up" className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Proven Results That Speak for Themselves
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
               Our track record demonstrates our commitment to excellence and the tangible impact we deliver to healthcare providers.
             </p>
-          </ScrollReveal>
+          </div>
           
-          <AnimatedStats stats={stats} />
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <Card key={index} className="text-center hover:scale-105 hover:shadow-xl transition-all duration-300">
+                <CardContent className="p-8">
+                  <div className="flex justify-center mb-4">
+                    <div className="w-16 h-16 bg-hero-gradient rounded-full flex items-center justify-center">
+                      {stat.icon}
+                    </div>
+                  </div>
+                  <div className="text-4xl font-bold text-trust-blue mb-2">
+                    {stat.number}{stat.suffix}
+                  </div>
+                  <div className="text-muted-foreground font-medium">
+                    {stat.label}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -231,47 +240,37 @@ const Index = () => {
       <section className="py-20 bg-section-gradient">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <ScrollReveal animation="slide-in-left">
+            <div>
               <h2 className="text-4xl md:text-5xl font-bold text-trust-blue mb-6">
                 Why Trust True Cycle Health For Your Revenue Cycle Management?
               </h2>
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-                <ScrollReveal animation="fade-in-up" delay={200}>
-                  <p>
-                    True Cycle Health delivers end-to-end revenue cycle solutions from front office support to back-end billing. Our services include patient scheduling, insurance verification, credentialing, claims processing, and denial management. We help healthcare providers enhance operational efficiency, reduce errors, and secure accurate reimbursements with confidence.
-                  </p>
-                </ScrollReveal>
-                <ScrollReveal animation="fade-in-up" delay={400}>
-                  <p>
-                    We are a team of experienced professionals dedicated to simplifying your revenue cycle management. With extensive expertise, we are committed to helping healthcare providers enhance efficiency, reduce claim denials, and achieve financial stability.
-                  </p>
-                </ScrollReveal>
-                <ScrollReveal animation="fade-in-up" delay={600}>
-                  <p>
-                    Our team emphasizes accurate and efficient claim submissions. We manage the entire spectrum of your revenue cycle from credentialing to payments allowing you to focus on delivering quality care while we handle the financial aspects.
-                  </p>
-                </ScrollReveal>
+                <p>
+                  True Cycle Health delivers end-to-end revenue cycle solutions from front office support to back-end billing. Our services include patient scheduling, insurance verification, credentialing, claims processing, and denial management. We help healthcare providers enhance operational efficiency, reduce errors, and secure accurate reimbursements with confidence.
+                </p>
+                <p>
+                  We are a team of experienced professionals dedicated to simplifying your revenue cycle management. With extensive expertise, we are committed to helping healthcare providers enhance efficiency, reduce claim denials, and achieve financial stability.
+                </p>
+                <p>
+                  Our team emphasizes accurate and efficient claim submissions. We manage the entire spectrum of your revenue cycle from credentialing to payments allowing you to focus on delivering quality care while we handle the financial aspects.
+                </p>
               </div>
-              <ScrollReveal animation="scale-in-bounce" delay={800}>
-                <div className="mt-8">
-                  <Link to="/contact">
-                    <Button variant="medical" size="lg" className="text-lg hover:animate-pulse-glow transition-all duration-300">
-                      Schedule a Consultation Today!
-                      <ChevronRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </Link>
-                </div>
-              </ScrollReveal>
-            </ScrollReveal>
-            <FloatingElement delay={1000} direction="up">
-              <ScrollReveal animation="scale-in" delay={200}>
-                <img 
-                  src={rcmServicesImage} 
-                  alt="Medical Billing Services" 
-                  className="rounded-lg shadow-lg w-full h-auto hover:shadow-2xl transition-all duration-300"
-                />
-              </ScrollReveal>
-            </FloatingElement>
+              <div className="mt-8">
+                <Link to="/contact">
+                  <Button variant="medical" size="lg" className="text-lg transition-all duration-300">
+                    Schedule a Consultation Today!
+                    <ChevronRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div>
+              <img 
+                src={rcmServicesImage} 
+                alt="Medical Billing Services" 
+                className="rounded-lg shadow-lg w-full h-auto hover:shadow-2xl transition-all duration-300"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -279,24 +278,21 @@ const Index = () => {
       {/* Services Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <ScrollReveal animation="fade-in-up" className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-trust-blue mb-6">
               Our Revenue Cycle Management Services
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               True Cycle Health offers a wide range of RCM services tailored to meet the unique needs of healthcare providers. Our expert team ensures your practice is supported every step of the way, boosting revenue, streamlining processes, and minimizing delays.
             </p>
-          </ScrollReveal>
+          </div>
 
           <div className="space-y-20">
             {services.map((service, index) => (
               <div key={index} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-                <ScrollReveal 
-                  animation={index % 2 === 0 ? "slide-in-left" : "slide-in-right"}
-                  className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}
-                >
+                <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                   <div className="flex items-center mb-4">
-                    <span className="text-accent text-2xl font-bold mr-4 animate-pulse-glow">Service #{service.number}</span>
+                    <span className="text-accent text-2xl font-bold mr-4">Service #{service.number}</span>
                   </div>
                   <h3 className="text-3xl font-bold text-trust-blue mb-6">{service.title}</h3>
                   <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
@@ -309,8 +305,7 @@ const Index = () => {
                       {service.keyServices.map((keyService, idx) => (
                         <div 
                           key={idx} 
-                          className="flex items-center space-x-3 opacity-0 animate-fade-in-up"
-                          style={{ animationDelay: `${idx * 100 + 500}ms`, animationFillMode: 'both' }}
+                          className="flex items-center space-x-3"
                         >
                           <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
                           <span className="text-muted-foreground">{keyService}</span>
@@ -325,21 +320,15 @@ const Index = () => {
                       <ChevronRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
-                </ScrollReveal>
+                </div>
                 
-                <FloatingElement 
-                  delay={index * 200} 
-                  direction={index % 2 === 0 ? "up" : "down"}
-                  className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}
-                >
-                  <ScrollReveal animation="scale-in" delay={300}>
-                    <img 
-                      src={service.image} 
-                      alt={service.title}
-                      className="rounded-lg shadow-lg w-full h-auto hover:shadow-2xl hover:scale-105 transition-all duration-500"
-                    />
-                  </ScrollReveal>
-                </FloatingElement>
+                <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="rounded-lg shadow-lg w-full h-auto hover:shadow-2xl hover:scale-105 transition-all duration-500"
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -349,86 +338,70 @@ const Index = () => {
       {/* Features Section */}
       <section className="py-20 bg-trust-light">
         <div className="container mx-auto px-4">
-          <ScrollReveal animation="fade-in-up" className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-trust-blue mb-6">
               Experience Innovative Solutions with True Cycle Health
             </h2>
-          </ScrollReveal>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <ScrollReveal 
-                key={index} 
-                animation="scale-in-bounce" 
-                delay={index * 150}
-              >
-                <Card className="hover:shadow-xl transition-all duration-500 hover:scale-110 group cursor-pointer">
-                  <CardContent className="p-8 text-center">
-                    <FloatingElement delay={index * 100}>
-                      <div className="w-16 h-16 bg-hero-gradient rounded-full flex items-center justify-center mx-auto mb-6 group-hover:animate-pulse-glow transition-all duration-300">
-                        <feature.icon className="h-8 w-8 text-white" />
-                      </div>
-                    </FloatingElement>
-                    <h3 className="text-xl font-semibold text-trust-blue mb-4 group-hover:text-accent transition-colors duration-300">{feature.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              </ScrollReveal>
+              <Card key={index} className="hover:shadow-xl transition-all duration-500 hover:scale-110 group cursor-pointer">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 bg-hero-gradient rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-300">
+                    <feature.icon className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-trust-blue mb-4 group-hover:text-accent transition-colors duration-300">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
 
-          <ScrollReveal animation="scale-in-bounce" delay={600} className="text-center mt-12">
+          <div className="text-center mt-12">
             <Link to="/quote">
-              <Button variant="cta" size="xl" className="text-lg px-8 py-4 hover:animate-pulse-glow transition-all duration-300">
+              <Button variant="cta" size="xl" className="text-lg px-8 py-4 transition-all duration-300">
                 Get Started with a Demo Today!
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-          </ScrollReveal>
+          </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <ScrollReveal animation="fade-in-up" className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-trust-blue mb-6">
               Client Testimonials
             </h2>
             <p className="text-xl text-muted-foreground">
               See what our healthcare partners say about our services
             </p>
-          </ScrollReveal>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <ScrollReveal 
-                key={index} 
-                animation="slide-up-fade" 
-                delay={index * 200}
-              >
-                <FloatingElement delay={index * 150} direction={index % 2 === 0 ? "up" : "down"}>
-                  <Card className="hover:shadow-xl transition-all duration-500 hover:scale-105 group h-full">
-                    <CardContent className="p-8 h-full flex flex-col">
-                      <div className="flex items-center mb-4">
-                        <Quote className="h-8 w-8 text-accent mr-3 group-hover:animate-pulse transition-all duration-300" />
-                        <div className="flex space-x-1">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400 group-hover:animate-pulse transition-all duration-300" style={{animationDelay: `${i * 100}ms`}} />
-                          ))}
-                        </div>
-                      </div>
-                      <p className="text-muted-foreground leading-relaxed mb-6 italic flex-grow">
-                        "{testimonial.content}"
-                      </p>
-                      <div className="border-t pt-4">
-                        <h4 className="font-semibold text-trust-blue group-hover:text-accent transition-colors duration-300">{testimonial.name}</h4>
-                        <p className="text-sm text-muted-foreground">{testimonial.title}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </FloatingElement>
-              </ScrollReveal>
+              <Card key={index} className="hover:shadow-xl transition-all duration-500 hover:scale-105 group h-full">
+                <CardContent className="p-8 h-full flex flex-col">
+                  <div className="flex items-center mb-4">
+                    <Quote className="h-8 w-8 text-accent mr-3 transition-all duration-300" />
+                    <div className="flex space-x-1">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400 transition-all duration-300" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed mb-6 italic flex-grow">
+                    "{testimonial.content}"
+                  </p>
+                  <div className="border-t pt-4">
+                    <h4 className="font-semibold text-trust-blue group-hover:text-accent transition-colors duration-300">{testimonial.name}</h4>
+                    <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -436,31 +409,19 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-hero-gradient text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-white rounded-full animate-float"></div>
-          <div className="absolute top-32 right-20 w-12 h-12 bg-accent rounded-full animate-float" style={{animationDelay: '1s'}}></div>
-          <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-white rounded-full animate-float" style={{animationDelay: '2s'}}></div>
-          <div className="absolute bottom-10 right-10 w-8 h-8 bg-accent rounded-full animate-float" style={{animationDelay: '0.5s'}}></div>
-        </div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <ScrollReveal animation="fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Let's Start A Conversation To Discuss Your Next Best Business Move
-            </h2>
-          </ScrollReveal>
-          <ScrollReveal animation="fade-in-up" delay={200}>
-            <p className="text-xl mb-8 text-blue-100">
-              Ready to transform your revenue cycle management? Contact us today for a consultation.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal animation="scale-in-bounce" delay={400}>
-            <Link to="/contact">
-              <Button variant="outline" size="xl" className="text-lg px-8 py-4 bg-white text-trust-blue hover:bg-blue-50 hover:scale-110 hover:shadow-2xl transition-all duration-300">
-                Get Started Now
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </ScrollReveal>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Let's Start A Conversation To Discuss Your Next Best Business Move
+          </h2>
+          <p className="text-xl mb-8 text-blue-100">
+            Ready to transform your revenue cycle management? Contact us today for a consultation.
+          </p>
+          <Link to="/contact">
+            <Button variant="outline" size="xl" className="text-lg px-8 py-4 bg-white text-trust-blue hover:bg-blue-50 hover:scale-110 hover:shadow-2xl transition-all duration-300">
+              Get Started Now
+              <ChevronRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
         </div>
       </section>
 
