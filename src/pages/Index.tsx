@@ -18,10 +18,13 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AnimatedStats from "@/components/AnimatedStats";
 import heroImage from "@/assets/hero-medical-team.jpg";
 import rcmServicesImage from "@/assets/rcm-services.jpg";
 import credentialingImage from "@/assets/credentialing.jpg";
 import auditAnalysisImage from "@/assets/audit-analysis.jpg";
+import rcmchnage from "@/assets/rcmchange.png";
+import React from "react";
 
 const Index = () => {
   const features = [
@@ -60,6 +63,7 @@ const Index = () => {
   const services = [
     {
       number: "01",
+      icon: Users,
       title: "Front Desk & Administrative Support",
       description: "Professional front desk and administrative support tailored to optimize patient intake and enhance satisfaction. We help create strong first impressions and ensure a seamless onboarding experience.",
       keyServices: [
@@ -74,6 +78,7 @@ const Index = () => {
     },
     {
       number: "02",
+      icon: DollarSign,
       title: "Back-End RCM Solutions",
       description: "Comprehensive back-end revenue cycle management services built to enhance cash flow and minimize claim denials. Our experienced team expertly manages complex billing processes with accuracy.",
       keyServices: [
@@ -84,10 +89,11 @@ const Index = () => {
         "Payment Posting",
         "EDI & ERA Enrollment"
       ],
-      image: rcmServicesImage
+      image: rcmchnage
     },
     {
       number: "03",
+      icon: Award,
       title: "Credentialing and Payer Enrollments",
       description: "End-to-end credentialing and payer enrollment services to keep your practice compliant and revenue ready. We ensure timely, accurate submissions and stay up to date with evolving payer requirements.",
       keyServices: [
@@ -102,6 +108,7 @@ const Index = () => {
     },
     {
       number: "04",
+      icon: Zap,
       title: "Revenue Cycle Audit & Analysis",
       description: "Insight-driven revenue cycle audits that uncover growth opportunities, ensure compliance, and improve financial outcomes. We dig deep into your data to identify gaps and refine workflows.",
       keyServices: [
@@ -213,26 +220,7 @@ const Index = () => {
               Our track record demonstrates our commitment to excellence and the tangible impact we deliver to healthcare providers.
             </p>
           </div>
-          
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <Card key={index} className="text-center hover:scale-105 hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 bg-hero-gradient rounded-full flex items-center justify-center">
-                      {stat.icon}
-                    </div>
-                  </div>
-                  <div className="text-4xl font-bold text-trust-blue mb-2">
-                    {stat.number}{stat.suffix}
-                  </div>
-                  <div className="text-muted-foreground font-medium">
-                    {stat.label}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <AnimatedStats stats={stats} />
         </div>
       </section>
 
@@ -291,10 +279,15 @@ const Index = () => {
             {services.map((service, index) => (
               <div key={index} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                 <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                  <div className="flex items-center mb-4">
-                    <span className="text-accent text-2xl font-bold mr-4">Service #{service.number}</span>
+                  <div className="mb-4 text-center flex flex-col items-center">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-10 h-10 bg-hero-gradient rounded-lg flex items-center justify-center">
+                        {React.createElement(service.icon, { className: 'h-6 w-6 text-white' })}
+                      </div>
+                      <span className="text-accent text-3xl font-extrabold font-sans tracking-wide">Service {service.number}</span>
+                    </div>
+                    <h3 className="text-3xl font-bold text-trust-blue mb-6">{service.title}</h3>
                   </div>
-                  <h3 className="text-3xl font-bold text-trust-blue mb-6">{service.title}</h3>
                   <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                     {service.description}
                   </p>
