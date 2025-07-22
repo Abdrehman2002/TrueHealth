@@ -281,8 +281,8 @@ const Index = () => {
               <div key={index} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                 <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                   <div className="mb-6 flex items-center justify-center gap-4 items-center">
-                    <div className="w-14 h-14 bg-hero-gradient rounded-lg flex items-center justify-center">
-                      {React.createElement(service.icon, { className: 'h-8 w-8 text-white' })}
+                    <div className="w-10 h-10 md:w-14 md:h-14 bg-hero-gradient rounded-lg flex items-center justify-center">
+                      {React.createElement(service.icon, { className: 'h-6 w-6 md:h-8 md:w-8 text-white' })}
                     </div>
                     <h3 className="text-3xl font-bold text-trust-blue leading-none self-center align-middle relative top-1">{service.title}</h3>
                   </div>
