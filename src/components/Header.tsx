@@ -37,8 +37,8 @@ const Header = () => {
             </div>
             <div className="flex items-center space-x-2">
               <Phone className="h-4 w-4" />
-              <a href="tel:+15551234567" className="hover:text-accent transition-colors">
-                (555) 123-4567
+              <a href="https://wa.me/923191982228" className="hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+                (214) 555-7890
               </a>
             </div>
           </div>

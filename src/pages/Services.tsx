@@ -161,7 +161,9 @@ const Services = () => {
                     <div className="w-12 h-12 bg-hero-gradient rounded-lg flex items-center justify-center mr-4">
                       <service.icon className="h-6 w-6 text-white" />
                     </div>
-                    <span className="text-accent text-lg font-semibold">Service {String(index + 1).padStart(2, '0')}</span>
+                    <span className="text-accent text-2xl font-extrabold">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
                   </div>
                   
                   <h3 className="text-3xl font-bold text-trust-blue mb-6">{service.title}</h3>

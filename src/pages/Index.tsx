@@ -24,6 +24,7 @@ import rcmServicesImage from "@/assets/rcm-services.jpg";
 import credentialingImage from "@/assets/credentialing.jpg";
 import auditAnalysisImage from "@/assets/audit-analysis.jpg";
 import rcmchnage from "@/assets/rcmchange.png";
+import rcmchangefinal from "@/assets/rcm-change-final.jpg";
 import React from "react";
 
 const Index = () => {
@@ -74,7 +75,7 @@ const Index = () => {
         "Medical Record Management",
         "Pre-Appointment Chart Updates"
       ],
-      image: rcmServicesImage
+      image: rcmchangefinal
     },
     {
       number: "02",
@@ -279,14 +280,11 @@ const Index = () => {
             {services.map((service, index) => (
               <div key={index} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                 <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                  <div className="mb-4 text-center flex flex-col items-center">
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="w-10 h-10 bg-hero-gradient rounded-lg flex items-center justify-center">
-                        {React.createElement(service.icon, { className: 'h-6 w-6 text-white' })}
-                      </div>
-                      <span className="text-accent text-3xl font-extrabold font-sans tracking-wide">Service {service.number}</span>
+                  <div className="mb-6 flex items-center justify-center gap-4 items-center">
+                    <div className="w-14 h-14 bg-hero-gradient rounded-lg flex items-center justify-center">
+                      {React.createElement(service.icon, { className: 'h-8 w-8 text-white' })}
                     </div>
-                    <h3 className="text-3xl font-bold text-trust-blue mb-6">{service.title}</h3>
+                    <h3 className="text-3xl font-bold text-trust-blue leading-none self-center align-middle relative top-1">{service.title}</h3>
                   </div>
                   <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                     {service.description}

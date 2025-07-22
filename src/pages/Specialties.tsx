@@ -227,7 +227,7 @@ const Specialties = () => {
             </div>
             <div className="grid grid-cols-2 gap-6">
               <Card className="p-6 text-center">
-                <h3 className="text-3xl font-bold text-accent mb-2">99%</h3>
+                <h3 className="text-3xl font-bold text-accent mb-2">98%</h3>
                 <p className="text-muted-foreground">Clean Claim Rate</p>
               </Card>
               <Card className="p-6 text-center">
