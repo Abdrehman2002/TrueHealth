@@ -88,8 +88,8 @@ const Footer = () => {
                 <Phone className="h-5 w-5 text-accent" />
                 <div>
                   <p className="text-blue-100">Phone</p>
-                  <a href="tel:+15551234567" className="hover:text-accent transition-colors">
-                    (555) 123-4567
+                  <a href="https://wa.me/923191982228" className="hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+                    (214) 555-7890
                   </a>
                 </div>
               </div>
@@ -115,7 +115,7 @@ const Footer = () => {
 
         <div className="border-t border-blue-400/20 mt-12 pt-8 text-center">
           <p className="text-blue-100">
-            © Copyright 2024 | All Rights Reserved True Cycle Health
+            © Copyright 2025 | All Rights Reserved True Cycle Health
           </p>
         </div>
       </div>
