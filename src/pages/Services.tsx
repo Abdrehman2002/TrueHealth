@@ -16,6 +16,9 @@ import Footer from "@/components/Footer";
 import rcmServicesImage from "@/assets/rcm-services.jpg";
 import credentialingImage from "@/assets/credentialing.jpg";
 import auditAnalysisImage from "@/assets/audit-analysis.jpg";
+import rcmchnage from "@/assets/rcmchange.png";
+import rcmchangefinal from "@/assets/rcm-change-final.jpg";
+import React from "react";
 
 const Services = () => {
   const services = [
@@ -24,7 +27,7 @@ const Services = () => {
       icon: Users,
       title: "Front Desk & Administrative Support",
       description: "Professional front desk and administrative support tailored to optimize patient intake and enhance satisfaction. We help create strong first impressions and ensure a seamless onboarding experience, functioning as a true extension of your practice to maintain smooth, efficient daily operations.",
-      image: rcmServicesImage,
+      image: rcmchnage,
       keyServices: [
         "Appointment Scheduling",
         "Eligibility & Benefits Verification",
@@ -45,7 +48,7 @@ const Services = () => {
       icon: CreditCard,
       title: "Back-End RCM Solutions",
       description: "Comprehensive back-end revenue cycle management services built to enhance cash flow and minimize claim denials. Our experienced team expertly manages complex billing processes with accuracy, enabling your staff to stay focused on delivering quality patient care.",
-      image: rcmServicesImage,
+      image: rcmchangefinal,
       keyServices: [
         "Claims Scrubbing & Submission",
         "Denial Management",
